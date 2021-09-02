@@ -1,7 +1,11 @@
 <?php 
 
 
+<<<<<<< HEAD
 //echo date('H:i:s');
+=======
+echo date('H:i:s');
+>>>>>>> 5f36a65630f3abbf698696155bdca9f65afb90ce
 
 // //указываем что страница возвращает json(нужно попробовать с xml)
 header("Content-type: application/json; charset=utf-8");

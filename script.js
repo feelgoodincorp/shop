@@ -17,7 +17,11 @@ function loadData(){
 			document.getElementById('item').innerHTML = this.responseText;
 		}
 	};
+<<<<<<< HEAD
 	//xhttp.open("GET","info.txt", true);
 	xhttp.open("GET","core.php", true);
+=======
+	xhttp.open("GET","info.txt", true);
+>>>>>>> 5f36a65630f3abbf698696155bdca9f65afb90ce
 	xhttp.send();
 }
