@@ -1,0 +1,181 @@
+@mixin breakpoint($point) {
+  @if $point == xl-up {
+    @media (min-width: 3840px) {
+      @content;
+    }
+  } @if $point == xl {
+    @media (max-width: 2560px) {
+      @content;
+    }
+  } @if $point == lg-sm {
+    @media (max-width: 1540px) {
+      @content;
+    }
+  } @else if $point == lg-hd {
+    @media (min-width: 1400px) and (max-width: 1540px) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (min-width: 1025px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == md-down {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == md-sm {
+    @media (min-width: 768px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == md-up {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point == sm-down {
+    @media (max-width: 1024px) {
+      @content;
+    }
+    // is touch?
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+} @else if $point == xs-down {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == sm-up {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == xs {
+    @media (max-width: 769px) {
+      @content;
+    }
+  } @else if $point == mxs {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $point == smxs {
+    @media (max-width: 500px) {
+      @content;
+    }
+  } @else if $point == sxs {
+    @media (max-width: 450px) {
+      @content;
+    }
+    }
+}
+
+@mixin orientation($direction) { 
+  $orientation-landscape: "(orientation:landscape)"; 
+  $orientation-portrait: "(orientation:portrait)";
+  @if $direction == landscape {@media #{$orientation-landscape} { @content; }}
+  @if $direction == portrait {@media #{$orientation-portrait} { @content; }}
+} 
+
+//not works
+//@import url('../fonts/Karla-Regular.ttf');
+//@import url('../fonts/OptimaLTStd.otf');
+$font-karla: 'Karla', sans-serif; //name - font-header,etc...?
+$font-optimal: 'OptimaLTStd', sans-serif;
+
+$offWhite: #E7E7E1;//bckg
+$white: #ffffff;
+$black: #161412;
+$grey: #65635F;
+$offWhite2: #F4F4F2;
+//margin (gutters, grid gutters)
+//transition (duration, easing) – consider a mixin
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-size: 100%;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+body{
+/* fix for inertial scrolling on ios*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+/* fix for opera's user agent default  styles */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: 0;
+
+/* allways botttom footer*/
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container{
+  width: 86%;
+  background-color: $white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+header{
+  //height: 28px;
+  height: 2vw;
+  margin: 56px 0 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .logo{
+    
+  }
+  ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    li{
+      margin: auto 0 auto 25px;
+      a{
+        font-family: $font-karla;
+        font-size: 1vw;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $black;
+      }
+      &#search{ 
+        margin-left: 32px;
+        a img{
+        width: 1.7vw;
+        vertical-align: middle;
+        }
+      }
+      &#basket{ 
+        margin-left: 16px;
+        a img{
+        width: 1.7vw;
+        vertical-align: middle;
+        }
+      }
+    }
+
+  }
+}
+
+.data-wrapper{
+  height: 100px;
+  background-color: $offWhite2;
+}
+
+.footer{
+    margin-top: auto;
+}
